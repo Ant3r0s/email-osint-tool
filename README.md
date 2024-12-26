@@ -10,16 +10,28 @@
 
 
 ---
+### Nuevas Funcionalidades:
+- **Comprobar registros MX**: Verifica los registros de intercambio de correo de un dominio.
+- **Comprobar registros DNS (A)**: Muestra las direcciones IP asociadas a un dominio.
+- **Detectar servidor web**: Detecta qué servidor web está ejecutando un dominio.
+- **Comprobar antigüedad del dominio**: Calcula la antigüedad del dominio.
+- **Comprobar dominios similares**: Muestra dominios que podrían ser similares al introducido.
+- **Verificar página de inicio de sesión**: Verifica si el dominio tiene una página de inicio de sesión.
+- **Comprobar política de privacidad**: Verifica la existencia de una página de política de privacidad.
 
 ## ⚙️ Características
-- **Extraer dominios** de correos electrónicos.
-- **Resolver dominios a direcciones IP**.
-- **Consultar información WHOIS** sobre dominios.
-- **Verificar certificados SSL** para dominios HTTPS.
-- **Menú interactivo** para navegar entre las opciones.
-- **Consultar información WHOIS** adicional"
-- **Comprobar si el dominio ha sido vulnerado**.
----
+
+- Extrae el dominio de correos electrónicos.
+- Resuelve dominios a direcciones IP.
+- Realiza consultas WHOIS sobre dominios.
+- Verifica certificados SSL para dominios HTTPS.
+- Comprobar registros MX de un dominio.
+- Comprobar registros DNS (A) de un dominio.
+- Detecta el servidor web de un dominio.
+- Calcula la antigüedad del dominio.
+- Comprobar la existencia de dominios similares.
+- Verifica si el dominio tiene una página de inicio de sesión.
+- Comprobar si el dominio tiene política de privacidad.
 
 ## 🚀 Instalación y uso
 
@@ -52,7 +64,7 @@ python osint.py
 
 Para instalarlas:
 ```bash
-pip install requests beautifulsoup4
+pip install requests beautifulsoup4 whois dnspython
 ```
 
 ---
