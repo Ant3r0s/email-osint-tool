@@ -2,8 +2,8 @@ import os
 import re
 import requests
 import socket
-import whois
 from bs4 import BeautifulSoup
+import whois
 
 def clear_console():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -76,43 +76,55 @@ def osint_menu():
     while True:
         clear_console()
         print_ascii_logo()
-        print("1. Extraer dominio de un correo electrónico")
-        print("2. Resolver dominio a IP")
-        print("3. Realizar consulta WHOIS")
-        print("4. Verificar SSL del dominio")
-        print("5. Consultar información WHOIS adicional")
-        print("6. Comprobar si el dominio ha sido vulnerado")
-        print("7. Salir")
+        print("""
+1. Extraer dominio de un correo electrónico
+   Ejemplo: 'example@domain.com' → Dominio: domain.com
 
-        choice = input("\nSelecciona una opción: ")
+2. Resolver dominio a IP
+   Ejemplo: 'domain.com' → IP: 93.184.216.34
 
-        if choice == '1':
-            email = input("Introduce el correo electrónico: ")
-            domain = extract_domain(email)
-            print(f"Dominio: {domain if domain else 'Correo no válido'}")
-        elif choice == '2':
-            domain = input("Introduce el dominio: ")
-            ip = check_ip(domain)
-            print(f"IP: {ip}")
-        elif choice == '3':
-            domain = input("Introduce el dominio: ")
-            whois_data = whois_lookup(domain)
-            print(f"WHOIS Data (Preview):\n{whois_data}")
-        elif choice == '4':
-            domain = input("Introduce el dominio: ")
-            ssl_status = check_ssl(domain)
-            print(f"SSL Status: {ssl_status}")
-        elif choice == '5':
-            dominio = input("Introduce un dominio válido (ej. gmail.com): ").strip()
-            consulta_whois(dominio)
-        elif choice == '6':
-            dominio = input("Introduce un correo electrónico o dominio para comprobar: ").strip()
-            comprobar_brechas(dominio)
-        elif choice == '7':
-            print("¡Hasta luego!")
+3. Realizar consulta WHOIS
+   Ejemplo: 'domain.com' → WHOIS Data: [Información detallada del dominio]
+
+4. Verificar SSL del dominio
+   Ejemplo: 'domain.com' → SSL Certificate Valid
+
+5. Comprobar si el dominio ha sido vulnerado
+   Ejemplo: 'domain.com' → El dominio ha sido comprometido en las siguientes brechas: [Brechas encontradas]
+
+6. Salir
+""")
+        try:
+            opcion = int(input("Selecciona una opción: ").strip())
+            if opcion == 1:
+                email = input("Introduce un correo electrónico: ").strip()
+                domain = extract_domain(email)
+                print(f"Dominio: {domain if domain else 'Correo no válido'}")
+            elif opcion == 2:
+                domain = input("Introduce el dominio: ").strip()
+                ip = check_ip(domain)
+                print(f"IP: {ip}")
+            elif opcion == 3:
+                domain = input("Introduce el dominio: ").strip()
+                whois_data = whois_lookup(domain)
+                print(f"WHOIS Data (Preview):\n{whois_data}")
+            elif opcion == 4:
+                domain = input("Introduce el dominio: ").strip()
+                ssl_status = check_ssl(domain)
+                print(f"SSL Status: {ssl_status}")
+            elif opcion == 5:
+                domain = input("Introduce un correo electrónico o dominio para comprobar: ").strip()
+                comprobar_brechas(domain)
+            elif opcion == 6:
+                print("¡Hasta luego!")
+                break
+            else:
+                print("Opción no válida, inténtalo de nuevo.")
+        except ValueError:
+            print("Entrada no válida. Por favor, introduce un número.")
+        except KeyboardInterrupt:
+            print("\nSaliendo del programa. ¡Hasta la próxima!")
             break
-        else:
-            print("Opción no válida, inténtalo de nuevo.")
 
         input("\nPresiona Enter para continuar...")
 
