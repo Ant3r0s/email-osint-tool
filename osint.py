@@ -78,43 +78,43 @@ def osint_menu():
         print_ascii_logo()
         print("""
 1. Extraer dominio de un correo electrónico
-   Ejemplo: 'example@domain.com' → Dominio: domain.com
-
 2. Resolver dominio a IP
-   Ejemplo: 'domain.com' → IP: 93.184.216.34
-
 3. Realizar consulta WHOIS
-   Ejemplo: 'domain.com' → WHOIS Data: [Información detallada del dominio]
-
 4. Verificar SSL del dominio
-   Ejemplo: 'domain.com' → SSL Certificate Valid
-
 5. Comprobar si el dominio ha sido vulnerado
-   Ejemplo: 'domain.com' → El dominio ha sido comprometido en las siguientes brechas: [Brechas encontradas]
-
 6. Salir
 """)
         try:
             opcion = int(input("Selecciona una opción: ").strip())
             if opcion == 1:
-                email = input("Introduce un correo electrónico: ").strip()
+                email = input("Introduce un correo electrónico (Ejemplo: example@domain.com): ").strip()
                 domain = extract_domain(email)
                 print(f"Dominio: {domain if domain else 'Correo no válido'}")
+                print("\nEjemplo de uso:")
+                print(f"Si introduces 'example@domain.com', el dominio extraído sería: {domain}")
             elif opcion == 2:
-                domain = input("Introduce el dominio: ").strip()
+                domain = input("Introduce el dominio (Ejemplo: domain.com): ").strip()
                 ip = check_ip(domain)
                 print(f"IP: {ip}")
+                print("\nEjemplo de uso:")
+                print(f"Si introduces 'domain.com', la IP sería: {ip}")
             elif opcion == 3:
-                domain = input("Introduce el dominio: ").strip()
+                domain = input("Introduce el dominio para realizar consulta WHOIS (Ejemplo: domain.com): ").strip()
                 whois_data = whois_lookup(domain)
                 print(f"WHOIS Data (Preview):\n{whois_data}")
+                print("\nEjemplo de uso:")
+                print(f"Si introduces 'domain.com', la consulta WHOIS devolvería: {whois_data[:200]}...")  # Muestra solo los primeros 200 caracteres
             elif opcion == 4:
-                domain = input("Introduce el dominio: ").strip()
+                domain = input("Introduce el dominio para verificar SSL (Ejemplo: domain.com): ").strip()
                 ssl_status = check_ssl(domain)
                 print(f"SSL Status: {ssl_status}")
+                print("\nEjemplo de uso:")
+                print(f"Si introduces 'domain.com', el estado del certificado SSL sería: {ssl_status}")
             elif opcion == 5:
-                domain = input("Introduce un correo electrónico o dominio para comprobar: ").strip()
+                domain = input("Introduce un correo electrónico o dominio para comprobar (Ejemplo: domain.com): ").strip()
                 comprobar_brechas(domain)
+                print("\nEjemplo de uso:")
+                print(f"Si introduces 'domain.com', comprobaría si ha sido vulnerado y te mostraría las brechas encontradas.")
             elif opcion == 6:
                 print("¡Hasta luego!")
                 break
@@ -130,4 +130,3 @@ def osint_menu():
 
 if __name__ == "__main__":
     osint_menu()
-
