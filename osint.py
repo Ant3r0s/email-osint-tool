@@ -2,6 +2,7 @@ import os
 import re
 import requests
 import socket
+import whois
 from bs4 import BeautifulSoup
 
 def clear_console():
@@ -46,6 +47,31 @@ def check_ssl(domain):
     except Exception as e:
         return f"Error checking SSL: {e}"
 
+def consulta_whois(dominio):
+    try:
+        datos = whois.whois(dominio)
+        print(f"\nInformación WHOIS para {dominio}:\n")
+        print(datos)
+    except Exception as e:
+        print(f"Error al obtener información WHOIS para {dominio}: {e}")
+
+def comprobar_brechas(dominio):
+    try:
+        url = f"https://haveibeenpwned.com/api/v3/breachedaccount/{dominio}"
+        headers = {"hibp-api-key": "<tu_api_key_aqui>", "User-Agent": "email-osint-tool"}
+        respuesta = requests.get(url, headers=headers)
+        if respuesta.status_code == 200:
+            brechas = respuesta.json()
+            print(f"\nEl dominio {dominio} ha sido comprometido en las siguientes brechas:")
+            for brecha in brechas:
+                print(f"- {brecha['Name']}: {brecha['Description']}")
+        elif respuesta.status_code == 404:
+            print(f"\nNo se han encontrado brechas conocidas para el dominio {dominio}.")
+        else:
+            print(f"\nError al consultar brechas: {respuesta.status_code}")
+    except Exception as e:
+        print(f"Error al comprobar brechas para {dominio}: {e}")
+
 def osint_menu():
     while True:
         clear_console()
@@ -54,7 +80,9 @@ def osint_menu():
         print("2. Resolver dominio a IP")
         print("3. Realizar consulta WHOIS")
         print("4. Verificar SSL del dominio")
-        print("5. Salir")
+        print("5. Consultar información WHOIS adicional")
+        print("6. Comprobar si el dominio ha sido vulnerado")
+        print("7. Salir")
 
         choice = input("\nSelecciona una opción: ")
 
@@ -75,6 +103,12 @@ def osint_menu():
             ssl_status = check_ssl(domain)
             print(f"SSL Status: {ssl_status}")
         elif choice == '5':
+            dominio = input("Introduce un dominio válido (ej. gmail.com): ").strip()
+            consulta_whois(dominio)
+        elif choice == '6':
+            dominio = input("Introduce un correo electrónico o dominio para comprobar: ").strip()
+            comprobar_brechas(dominio)
+        elif choice == '7':
             print("¡Hasta luego!")
             break
         else:
