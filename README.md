@@ -8,7 +8,6 @@
 ## 📜 Descripción
 **Email OSINT Tool** es una herramienta creada en Python que permite analizar dominios de correos electrónicos y recopilar información OSINT (Open Source Intelligence) sobre ellos. Incluye funcionalidades como extracción de dominios, resolución de IP, consultas WHOIS, y verificación de certificados SSL.
 
-¡Todo con una interfaz interactiva en consola y un logo en ASCII de un correo electrónico malvado! 🖤
 
 ---
 
