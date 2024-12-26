@@ -70,47 +70,47 @@ pip install requests beautifulsoup4 whois dnspython
 ---
 
 ## 🌐 Ejemplo de uso
-Extraer dominio de un correo electrónico:
-
+1. Extraer dominio de un correo electrónico:
 Introduce un correo como: example@domain.com.
 El programa extraerá el dominio: domain.com.
-Resolver dominio a IP:
 
+2. Resolver dominio a IP:
 Introduce el dominio: domain.com.
 Obtendrás la IP asociada al dominio.
-Realizar consulta WHOIS:
 
+3. Realizar consulta WHOIS:
 Introduce el dominio: domain.com.
 El programa te mostrará la información WHOIS del dominio.
-Verificar SSL:
 
+4. Verificar SSL:
 Introduce el dominio: domain.com.
 El programa te mostrará el estado del certificado SSL.
-Comprobar registros MX:
 
+5. Comprobar registros MX:
 Introduce el dominio: domain.com.
 Obtendrás los registros MX de ese dominio.
-Comprobar registros DNS (A):
 
+6. Comprobar registros DNS (A):
 Introduce el dominio: domain.com.
 Obtendrás las direcciones IP asociadas a ese dominio.
-Detectar servidor web:
 
+7. Detectar servidor web:
 Introduce el dominio: domain.com.
 El programa detectará y mostrará el servidor web del dominio.
-Comprobar antigüedad del dominio:
 
+8. Comprobar antigüedad del dominio:
 Introduce el dominio: domain.com.
 El programa te mostrará la antigüedad del dominio en días.
-Comprobar dominios similares:
 
+9. Comprobar dominios similares:
 Introduce el dominio: domain.com.
 El programa te mostrará posibles dominios similares.
-Verificar página de inicio de sesión:
 
+10. Verificar página de inicio de sesión:
 Introduce el dominio: domain.com.
 El programa verificará si existe una página de inicio de sesión en el dominio.
-Comprobar política de privacidad:
+
+11. Comprobar política de privacidad:
 Introduce el dominio: domain.com.
 El programa verificará si existe una página de política de privacidad en el dominio.
 
