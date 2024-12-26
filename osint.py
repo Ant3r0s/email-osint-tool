@@ -4,6 +4,7 @@ import requests
 import socket
 from bs4 import BeautifulSoup
 import whois
+import time
 
 def clear_console():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -20,6 +21,20 @@ def print_ascii_logo():
     😈 EvilMailOSINT 😈
     """
     print(logo)
+
+def print_loading_bar():
+    """Función para simular un barrido de carga en la consola."""
+    bar = ["[                    ]", "[#                   ]", "[##                  ]", "[###                 ]", "[####                ]", 
+           "[#####               ]", "[######              ]", "[#######             ]", "[########            ]", 
+           "[#########           ]", "[##########          ]", "[###########         ]", "[############        ]", 
+           "[#############       ]", "[##############      ]", "[###############     ]", "[################    ]", 
+           "[#################   ]", "[##################  ]", "[################### ]", "[####################]"]
+    
+    for step in bar:
+        clear_console()
+        print_ascii_logo()
+        print(step)
+        time.sleep(0.1)
 
 def extract_domain(email):
     match = re.search(r'@([\w.-]+)', email)
@@ -89,30 +104,35 @@ def osint_menu():
             if opcion == 1:
                 email = input("Introduce un correo electrónico (Ejemplo: example@domain.com): ").strip()
                 domain = extract_domain(email)
+                print_loading_bar()  # Barrido
                 print(f"Dominio: {domain if domain else 'Correo no válido'}")
                 print("\nEjemplo de uso:")
                 print(f"Si introduces 'example@domain.com', el dominio extraído sería: {domain}")
             elif opcion == 2:
                 domain = input("Introduce el dominio (Ejemplo: domain.com): ").strip()
                 ip = check_ip(domain)
+                print_loading_bar()  # Barrido
                 print(f"IP: {ip}")
                 print("\nEjemplo de uso:")
                 print(f"Si introduces 'domain.com', la IP sería: {ip}")
             elif opcion == 3:
                 domain = input("Introduce el dominio para realizar consulta WHOIS (Ejemplo: domain.com): ").strip()
                 whois_data = whois_lookup(domain)
+                print_loading_bar()  # Barrido
                 print(f"WHOIS Data (Preview):\n{whois_data}")
                 print("\nEjemplo de uso:")
                 print(f"Si introduces 'domain.com', la consulta WHOIS devolvería: {whois_data[:200]}...")  # Muestra solo los primeros 200 caracteres
             elif opcion == 4:
                 domain = input("Introduce el dominio para verificar SSL (Ejemplo: domain.com): ").strip()
                 ssl_status = check_ssl(domain)
+                print_loading_bar()  # Barrido
                 print(f"SSL Status: {ssl_status}")
                 print("\nEjemplo de uso:")
                 print(f"Si introduces 'domain.com', el estado del certificado SSL sería: {ssl_status}")
             elif opcion == 5:
                 domain = input("Introduce un correo electrónico o dominio para comprobar (Ejemplo: domain.com): ").strip()
                 comprobar_brechas(domain)
+                print_loading_bar()  # Barrido
                 print("\nEjemplo de uso:")
                 print(f"Si introduces 'domain.com', comprobaría si ha sido vulnerado y te mostraría las brechas encontradas.")
             elif opcion == 6:
