@@ -41,7 +41,7 @@ pip install -r requirements.txt
 
 ### 4. Ejecuta la herramienta:
 ```bash
-python main.py
+python osint.py
 ```
 
 ---
