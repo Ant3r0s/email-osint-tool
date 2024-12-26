@@ -18,7 +18,8 @@
 - **Consultar información WHOIS** sobre dominios.
 - **Verificar certificados SSL** para dominios HTTPS.
 - **Menú interactivo** para navegar entre las opciones.
-
+- **Consultar información WHOIS** adicional"
+- **Comprobar si el dominio ha sido vulnerado**.
 ---
 
 ## 🚀 Instalación y uso
