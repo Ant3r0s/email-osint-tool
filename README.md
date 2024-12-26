@@ -25,7 +25,7 @@
 
 ### 1. Clona el repositorio:
 ```bash
-git clone https://github.com/TuUsuario/email-osint-tool.git
+git clone https://github.com/Ant3r0s/email-osint-tool.git
 ```
 
 ### 2. Entra en el directorio del proyecto:
