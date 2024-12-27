@@ -3,3 +3,7 @@ beautifulsoup4
 python-whois
 dnspython
 ipinfo
+requests-oauthlib
+twilio
+pyshorteners
+pyuseragents
