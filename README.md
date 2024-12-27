@@ -31,8 +31,8 @@
   
 ### Interfaz de Usuario:
 
-- **Menú principal: Creación de un menú principal para navegar entre las opciones de OSINT y Reconocimiento/Enumeración.
-- **Menús secundarios: Añadidos menús interactivos con opciones para cada categoría, pidiendo la entrada del usuario y ejecutando las funciones correspondientes.
+- **Menú principal:** Creación de un menú principal para navegar entre las opciones de OSINT y Reconocimiento/Enumeración.
+- **Menús secundarios:** Añadidos menús interactivos con opciones para cada categoría, pidiendo la entrada del usuario y ejecutando las funciones correspondientes.
   
 ### Nuevas Funcionalidades:
 - **Comprobar registros MX**: Verifica los registros de intercambio de correo de un dominio.
