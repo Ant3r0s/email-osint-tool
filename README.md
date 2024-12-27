@@ -10,6 +10,30 @@
 
 
 ---
+### Más Funcionalidades:
+- **Google Dorks:** Añadido ejemplo simple de uso con un término de búsqueda.
+- **Extracción de enlaces:** Implementación para extraer enlaces de una página web usando BeautifulSoup.
+- **Verificación de correos electrónicos:** Validación del formato del correo y comprobación de registros MX en el dominio.
+- **Crawling básico:** Redirige a la función de extracción de enlaces de una URL.
+- **Análisis de cabeceras HTTP:** Añadido análisis de cabeceras HTTP con requests.
+- **Geolocalización de IPs:** Implementada la función usando la API de ipinfo.io.
+- **Detección de CMS:** Añadida detección básica para WordPress y Joomla en URLs.
+- **Historial de DNS y fugas de datos:** Comentarios indicativos del uso de herramientas externas (ViewDNS, HaveIBeenPwned).
+  
+- **Funciones de Reconocimiento y Enumeración:**
+    - Extracción de dominio de un correo electrónico.
+    - Resolución de dominio a IP usando socket.gethostbyname.
+    - Consulta WHOIS con la librería whois.
+    - Comprobación de SSL a través de una solicitud HTTP.
+    - Detección de servidor web mediante las cabeceras HTTP.
+    - Comprobación de antigüedad del dominio con datos WHOIS.
+    - Búsqueda de dominios similares basados en las partes del dominio principal.
+  
+### Interfaz de Usuario:
+
+- **Menú principal: Creación de un menú principal para navegar entre las opciones de OSINT y Reconocimiento/Enumeración.
+- **Menús secundarios: Añadidos menús interactivos con opciones para cada categoría, pidiendo la entrada del usuario y ejecutando las funciones correspondientes.
+  
 ### Nuevas Funcionalidades:
 - **Comprobar registros MX**: Verifica los registros de intercambio de correo de un dominio.
 - **Comprobar registros DNS (A)**: Muestra las direcciones IP asociadas a un dominio.
